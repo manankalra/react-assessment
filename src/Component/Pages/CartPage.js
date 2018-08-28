@@ -62,7 +62,7 @@ class CartPage extends Component {
               </Alert>
             </ModalBody>
             <ModalFooter>
-                <Button className="info" href="http://localhost:3333/">Close</Button>
+                <Button className="info" href="http://localhost:3000/">Close</Button>
             </ModalFooter>
         </Modal>
       </div>

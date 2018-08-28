@@ -48,6 +48,13 @@
     - contains two buttons - checkout leads to another page, close leads to previous pages
     - on checkout, another modal is displayed with a message and a close buttons - which leads to the home page
     - close button on the cart page also leads to the home page
+  - _ProductPage_
+    - renders a modal when a product from the shopping list is clicked
+    - the modal also has the functionality of adding an item to the cart
+    - close button on the modal leads back to the home page
+  - _Login_
+    - uses _reactstrap_ for rendering a form
+    - doesn't function as of now
   - _App_
     - fetched products before the component mounts
     - defines methods to add product, to remove product, and to update the cart

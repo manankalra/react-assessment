@@ -40,7 +40,7 @@ class ProductPage extends Component {
                               <InputGroup id={"ProductInputGroup" + product._id}>
                                 <Input id={"ProductInput" + product._id} type="number" placeholder="Enter Quantity" min="1"  />
                                 <InputGroupAddon id={"ProductInputGroupAddOn" + product._id} addonType="append">
-                                   <Link to="/"><Button id={"ProductButton" + product._id} size="lg" color="success" onClick={() => this.props.addProduct(product, this.func(product._id))}>Add to Cart</Button></Link>
+                                   <Link to="/"><Button id={"ProductButton" + product._id} size="md" color="info" onClick={() => this.props.addProduct(product, this.func(product._id))}>Add to Cart</Button></Link>
                                 </InputGroupAddon>
                               </InputGroup>
                           <div class="product-detail">

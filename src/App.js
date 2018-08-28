@@ -9,6 +9,7 @@ import { addToCart, deleteFromCart } from './state/cart/action';
 
 import HomePage from './Component/Pages/HomePage';
 import CartPage from './Component/Pages/CartPage';
+import ProductPage from './Component/Pages/ProductPage';
 
 class App extends Component {
   componentWillMount(){
@@ -35,15 +36,32 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div>
-          <Route exact path="/"  render={()=>
-              <HomePage products={this.props.products}
-                        cart={this.props.cart}
-                        addProduct={this.addProduct.bind(this)} />}/>
-          <Route path="/cart" render={()=>
-              <CartPage cart={this.props.cart}
-                        removeFromCart={this.removeFromCart.bind(this)}/>} />
-        </div>
-      </BrowserRouter>
+          <Route
+            exact
+            path="/"
+            render={()=>
+              <HomePage
+                products={this.props.products}
+                cart={this.props.cart}
+                addProduct={this.addProduct.bind(this)} />
+            } />
+            <Route
+              path="/cart"
+              render={()=>
+                <CartPage
+                  cart={this.props.cart}
+                  removeFromCart={this.removeFromCart.bind(this)}/>
+              } />
+              <Route
+                path="/product/:productId"
+                render={()=>
+                  <ProductPage
+                    products={this.props.products}
+                    addProduct={this.addProduct.bind(this)} />
+                } />
+
+              </div>
+            </BrowserRouter>
     );
   }
 }

@@ -28,12 +28,14 @@ class ShopCard extends Component{
     render(){
         const product = this.props.product;
         return(
-          <Card id={"ShopCard" + product._id} onMouseOut={() => this.mouseOut()} onMouseOver={() => this.mouseOver()}>
-            <CardImg id={"ShopCardImg" + product._id} top width="100%" src={product.image} />
-            <CardBody id={"ShopCardBody" + product._id}>
-              <CardTitle id={"ShopCardTitle" + product._id}>{product.name}</CardTitle>
-              <CardSubtitle id={"ShopCardSubtitle" + product._id}>Price: {product.price}</CardSubtitle>
-            </CardBody>
+            <Card id={"ShopCard" + product._id} onMouseOut={() => this.mouseOut()} onMouseOver={() => this.mouseOver()}>
+            <Link to={"/product/" + product._id}>
+              <CardImg id={"ShopCardImg" + product._id} top width="100%" src={product.image} />
+              <CardBody id={"ShopCardBody" + product._id}>
+                <CardTitle id={"ShopCardTitle" + product._id}>{product.name}</CardTitle>
+                <CardSubtitle id={"ShopCardSubtitle" + product._id}>Price: ${product.price}</CardSubtitle>
+              </CardBody>
+            </Link>
             <Collapse id={"ShopCardCollapse" + product._id} isOpen={this.state.collapse}>
               <InputGroup id={"ShopCardInputGroup" + product._id}>
                   <Input id={"ShopCardInput" + product._id} type="number" placeholder="Enter Quantity" min="1" />

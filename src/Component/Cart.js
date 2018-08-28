@@ -19,7 +19,7 @@ class Cart extends Component {
             <tr key={"CartTableRow" + item._id}>
               <td><img src={item.image} width="100" height="100" className="rounded" alt="Cinque Terre" />  {item.name}</td>
               <td>{item.units}</td>
-              <td className="text-center">{item.price}</td>
+              <td className="text-center">${item.price}</td>
               <td><Button color="danger" size="sm" onClick={() => this.props.removeFromCart(item._id)}>Remove</Button></td>
             </tr>)) }
         </tbody>

@@ -49,7 +49,7 @@ class CartPage extends Component {
             <h1>Cart</h1>
             <Cart cart={cart} removeFromCart={this.props.removeFromCart.bind(this)}/>
           </ModalBody>
-          <h5><span className="label label-default">Total Amount: {this.CalculateTotalAmount(cart)}</span></h5>
+          <h5><span className="label label-default">Total Amount: ${this.CalculateTotalAmount(cart)}</span></h5>
           <ModalFooter>
             <Button color="success" onClick={this.CheckOutMessage}>CheckOut</Button>{' '}
             <Link to="/" ><Button color="secondary">Close</Button></Link>

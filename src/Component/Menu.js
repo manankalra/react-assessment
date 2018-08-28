@@ -27,7 +27,7 @@ class Menu extends Component {
             <Nav className="ml-auto" navbar>
               <NavItem>
                 <Link to="/cart"><img src={Shopping_Logo} width="30" height="30" className="rounded" style={{margin:"0px 20px"}}/></Link>
-                <Badge color="warning" >{this.props.itemsInCart}</Badge>
+                <Badge color="warning">{this.props.itemsInCart}</Badge>
               </NavItem>
             </Nav>
           </Collapse>

@@ -1,0 +1,62 @@
+import React, { Component } from 'react';
+
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { BrowserRouter, Route } from 'react-router-dom';
+
+import { fetchProducts } from './state/product/action';
+import { addToCart, deleteFromCart } from './state/cart/action';
+
+import HomePage from './Component/Pages/HomePage';
+import CartPage from './Component/Pages/CartPage';
+
+class App extends Component {
+  componentWillMount(){
+    this.props.fetchProducts();
+  }
+
+  addProduct(product, value){
+    if(value > 0)
+      product["units"] = value;
+    else
+      product["units"] = 1;
+    this.props.addToCart(product);
+  }
+
+  removeFromCart(_id){
+      this.props.deleteFromCart(_id);
+  }
+
+  updateCart(id, units){
+    this.props.updateItemUnits(id, units);
+  }
+
+  render() {
+    return (
+      <BrowserRouter>
+        <div>
+          <Route exact path="/"  render={()=>
+              <HomePage products={this.props.products}
+                        cart={this.props.cart}
+                        addProduct={this.addProduct.bind(this)} />}/>
+          <Route path="/cart" render={()=>
+              <CartPage cart={this.props.cart}
+                        removeFromCart={this.removeFromCart.bind(this)}/>} />
+        </div>
+      </BrowserRouter>
+    );
+  }
+}
+
+const mapStateToProps = (state) => ({
+  products: state.product.products,
+  cart: state.cart,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  fetchProducts: bindActionCreators(fetchProducts, dispatch),
+  addToCart: bindActionCreators(addToCart, dispatch),
+  deleteFromCart: bindActionCreators(deleteFromCart, dispatch),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
